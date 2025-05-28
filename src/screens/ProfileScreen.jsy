@@ -1,0 +1,60 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+  Image
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const ProfileScreen = () => {
+  const navigation = useNavigation();
+
+  const menuItems = [
+    { icon: 'person-circle-outline', label: 'Profile', screen: 'EditProfile' },
+    { icon: 'notifications-outline', label: 'Notifications', screen: 'Notifications' },
+    { icon: 'settings-outline', label: 'Settings', screen: 'Settings' },
+    { icon: 'shield-checkmark-outline', label: 'Safety Tools', screen: 'SafetyTools' },
+    { icon: 'lock-closed-outline', label: 'Privacy', screen: 'Privacy' },
+    { icon: 'help-circle-outline', label: 'Help & Support', screen: 'Help' },
+    { icon: 'information-circle-outline', label: 'About', screen: 'About' },
+    { icon: 'log-out-outline', label: 'Logout', screen: 'Logout' },
+  ];
+
+  return (
+    <SafeAreaView className="flex-1 bg-black">
+      <ScrollView className="px-6 pt-4">
+        {/* Top profile section */}
+        <View className="items-center mb-8">
+          <Image
+            source={require('../assets/avatar-placeholder.png')}
+            className="w-20 h-20 rounded-full mb-3"
+          />
+          <Text className="text-white text-xl font-bold">Welcome, Jane!</Text>
+          <Text className="text-gray-400">“Staying safe today.”</Text>
+        </View>
+
+        {/* Menu */}
+        <View className="space-y-4">
+          {menuItems.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              className="flex-row items-center bg-[#1e1e1e] p-4 rounded-2xl"
+              onPress={() => navigation.navigate(item.screen)}
+              activeOpacity={0.7}
+            >
+              <Icon name={item.icon} size={24} color="#fff" className="mr-4" />
+              <Text className="text-white text-base">{item.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default ProfileScreen;
+
