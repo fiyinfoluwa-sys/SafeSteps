@@ -1,4 +1,5 @@
 # SafeSteps
+**Independent Project | 2025 | Safety App**
 
 SafeSteps is an AI-powered mobile safety companion designed to protect users on the move. Leveraging real-time location sharing, AI-based distress detection, emergency alerts, and community-driven support, SafeSteps empowers students, newcomers, and individuals walking alone to feel secure and connected.
 
